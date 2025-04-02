@@ -3,18 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presale Signup</title>
+    <title>Exclusive T-Shirt Pre-Order</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        img { width: 200px; margin-bottom: 20px; }
-        input, button { padding: 10px; font-size: 16px; margin: 10px; }
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap'); /* Futura Alternative */
+        
+        body {
+            font-family: 'Oswald', sans-serif;
+            background: radial-gradient(circle, rgba(255,30,90,1) 20%, rgba(50,10,50,1) 80%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            max-width: 80%;
+        }
+        img {
+            width: 250px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 30, 90, 0.8);
+        }
+        h1 {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            margin: 8px;
+            cursor: pointer;
+        }
+        select {
+            background: white;
+            color: black;
+        }
+        button {
+            background: rgba(255, 30, 90, 1);
+            color: white;
+            font-weight: bold;
+            box-shadow: 0px 0px 10px rgba(255, 30, 90, 0.8);
+        }
+        button:hover {
+            background: rgba(200, 20, 70, 1);
+        }
     </style>
 </head>
 <body>
-    <img src="https://drive.google.com/file/d/1i3sTvvhl1J78pt6foOOqRmnX07ZoSEyo/view?usp=drivesdk.png" alt="Your Logo">  
-    <h1>Sign up for the T-Shirt Presale</h1>
-    <p>Enter your email below to be notified when presale starts.</p>
-    <input type="email" placeholder="Your Email" id="email">
-    <button onclick="alert('Signed up!')">Sign Up</button>
+    <div class="container">
+        <img src="your-tshirt-image-url.png" alt="Exclusive T-Shirt">
+        <h1>Limited Edition T-Shirt</h1>
+        <p class="price">$40</p>
+        <label for="size">Select Size:</label>
+        <select id="size">
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+            <option value="XL">X-Large</option>
+            <option value="XXL">XX-Large</option>
+        </select>
+        <br>
+        <button onclick="preOrder()">Pre-Order Now</button>
+    </div>
+
+    <script>
+        function preOrder() {
+            let size = document.getElementById("size").value;
+            let checkoutURL = "https://your-checkout-link.com?size=" + size;
+            window.location.href = checkoutURL; // Redirects to checkout page
+        }
+    </script>
 </body>
 </html>
