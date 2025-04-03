@@ -13,6 +13,7 @@
             font-weight: bold;
         }
 
+        /* Ensure full height for body and html */
         body, html {
             height: 100%;
             margin: 0;
@@ -28,9 +29,10 @@
             overflow-x: hidden;
         }
 
+        /* Background Image with Dim Overlay */
         body::before {
             content: "";
-            position: fixed;
+            position: fixed; /* Fixed so it covers the full screen */
             top: 0;
             left: 0;
             width: 100%;
@@ -61,6 +63,7 @@
             position: relative;
         }
 
+        /* Shirt image hover effect */
         .shirt-container {
             display: inline-block;
             position: relative;
@@ -127,6 +130,7 @@
             background: rgba(200, 20, 70, 1);
         }
 
+        /* New Section: Project Image */
         .project-section {
             margin-top: 40px;
         }
@@ -143,58 +147,43 @@
             transform: scale(1.05);
         }
 
-        /* Footer Styling */
-        .footer {
-            font-size: 8px;
-            color: #FFFFFF;
-            text-align: center;
-            margin-top: 80px;
-            padding: 15px 0;
-        }
-
-        /* Cart icon styling */
-        .cart-icon {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            font-size: 10px;
-            color: white;
-            cursor: pointer;
-            z-index: 10;
-        }
-
+        /* Cart Icon and Cart Text Styling */
         .cart-container {
             position: fixed;
-            top: 60px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            display: none;
-            box-shadow: 0px 0px 10px rgba(255, 30, 90, 0.8);
-        }
-
-        .cart-container ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .cart-container li {
+            top: 10px;
+            right: 10px;
             color: white;
-            margin: 5px 0;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
-        .cart-container button {
-            margin-top: 10px;
-            background: rgba(255, 30, 90, 1);
+        .cart-text {
+            font-size: 12px;
+            margin-left: 5px;
+            font-weight: normal;
+        }
+
+        /* Footer Styling */
+        .footer {
+            font-size: 8px; /* Slightly smaller text */
+            color: #FFFFFF; /* Fully visible white text */
+            text-align: center;
+            margin-top: 80px; /* Moves it further down */
+            padding: 15px 0;
         }
 
     </style>
 </head>
 <body>
+    <!-- Header Logo -->
     <div class="logo-container">
         <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo">
+    </div>
+
+    <!-- Cart Icon and Item Count -->
+    <div class="cart-container" onclick="toggleCart()">
+        CART <span id="cart-count" class="cart-text">(0)</span>
     </div>
 
     <div class="container">
@@ -216,61 +205,29 @@
         <button onclick="addToCart()">ADD TO CART</button>
     </div>
 
+    <!-- New Project Section -->
     <div class="project-section">
         <h2>STREAM MIXED CHEMICALS</h2>
         <img src="SIX_19349515-2B36-4E5E-A5A1-18ACB700128A.png" alt="Latest Project" class="project-img" onclick="goToLinktree()">
     </div>
 
+    <!-- Footer -->
     <div class="footer">
-        Property of Pous-Ojeda Productions & Xavier Pous-Ojeda All rights reserved &copy; 2025
-    </div>
-
-    <!-- Cart Modal -->
-    <div class="cart-icon" onclick="toggleCart()">🛒</div>
-    <div class="cart-container" id="cart-container">
-        <h2>Your Cart</h2>
-        <ul id="cart-items">
-            <!-- Items will be added here dynamically -->
-        </ul>
-        <button onclick="checkout()">Go to Checkout</button>
+        Property of Pous-Ojeda Productions & Xavier Pous-Ojeda  All rights reserved  &copy; 2025
     </div>
 
     <script>
-        let cart = [];
+        let cartCount = 0;
 
+        // Function to update the cart item count
+        function updateCartCount() {
+            document.getElementById('cart-count').innerText = `(${cartCount})`;
+        }
+
+        // Add item to cart
         function addToCart() {
-            let size = document.getElementById("size").value;
-            let product = {
-                name: "POUS-OJEDA PRODUCTIONS TEE",
-                size: size,
-                price: "$40"
-            };
-            cart.push(product);
-            updateCart();
-        }
-
-        function updateCart() {
-            let cartItems = document.getElementById("cart-items");
-            cartItems.innerHTML = "";
-            cart.forEach(item => {
-                let listItem = document.createElement("li");
-                listItem.textContent = `${item.name} - Size: ${item.size} - ${item.price}`;
-                cartItems.appendChild(listItem);
-            });
-        }
-
-        function toggleCart() {
-            let cartContainer = document.getElementById("cart-container");
-            if (cartContainer.style.display === "none" || cartContainer.style.display === "") {
-                cartContainer.style.display = "block";
-            } else {
-                cartContainer.style.display = "none";
-            }
-        }
-
-        function checkout() {
-            let checkoutURL = "https://docs.google.com/forms/d/e/1FAIpQLSefXpNO3V9YoAUjAAB2_DptPblq0mDpcszG8CVfha_MdHPevA/viewform?usp=sharing";
-            window.location.href = checkoutURL;
+            cartCount++;
+            updateCartCount();
         }
 
         function goToLinktree() {
