@@ -50,7 +50,7 @@
         }
 
         .logo {
-            width: 75px; /* Half of the previous 150px size */
+            width: 75px;
             filter: drop-shadow(0px 0px 10px rgba(255, 30, 90, 0.8));
         }
 
@@ -63,11 +63,33 @@
             position: relative;
         }
 
-        img {
+        /* Shirt image hover effect */
+        .shirt-container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .shirt-container img {
             width: 250px;
             border-radius: 10px;
             margin-bottom: 15px;
             box-shadow: 0px 0px 15px rgba(255, 30, 90, 0.8);
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .shirt-container .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .shirt-container:hover .front {
+            opacity: 0;
+        }
+
+        .shirt-container:hover .back {
+            opacity: 1;
         }
 
         h1 {
@@ -134,7 +156,10 @@
     </div>
 
     <div class="container">
-        <img src="your-tshirt-image-url.png" alt="Exclusive T-Shirt">
+        <div class="shirt-container">
+            <img src="SIX_74FB4B05-66D1-435E-BFA8-CD9BA68292A8.png" alt="T-Shirt Front" class="front">
+            <img src="SIX_5EFA9EF7-34B6-4645-93C7-160F916D657E.png" alt="T-Shirt Back" class="back">
+        </div>
         <h1>POUS-OJEDA PRODUCTIONS TEE</h1>
         <p class="price">$40</p>
         <label for="size"></label>
