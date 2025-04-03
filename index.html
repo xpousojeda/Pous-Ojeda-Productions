@@ -153,15 +153,31 @@
             top: 10px;
             right: 10px;
             color: white;
-            font-size: 12px;
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
+            z-index: 2;
         }
 
         .cart-text {
             font-size: 12px;
             margin-left: 5px;
             font-weight: normal;
+        }
+
+        /* Cart Dropdown Styling */
+        #cart-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 25px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            width: 150px;
+            color: white;
+            font-size: 14px;
+            z-index: 3;
         }
 
         /* Footer Styling */
@@ -182,8 +198,14 @@
     </div>
 
     <!-- Cart Icon and Item Count -->
-    <div class="cart-container" onclick="toggleCart()">
+    <div class="cart-container" onmouseover="showCartDropdown()" onmouseout="hideCartDropdown()" onclick="toggleCart()">
         CART <span id="cart-count" class="cart-text">(0)</span>
+    </div>
+
+    <!-- Cart Dropdown Menu -->
+    <div id="cart-dropdown">
+        Items in Cart: <span id="cart-item-count">0</span><br>
+        <button onclick="clearCart()">Clear Cart</button>
     </div>
 
     <div class="container">
@@ -217,11 +239,23 @@
     </div>
 
     <script>
-        let cartCount = 0;
+        let cartCount = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
 
-        // Function to update the cart item count
+        // Update cart count in real-time
         function updateCartCount() {
             document.getElementById('cart-count').innerText = `(${cartCount})`;
+            document.getElementById('cart-item-count').innerText = cartCount;
+            localStorage.setItem('cartCount', cartCount); // Store cart count in localStorage
+        }
+
+        // Show cart dropdown
+        function showCartDropdown() {
+            document.getElementById('cart-dropdown').style.display = 'block';
+        }
+
+        // Hide cart dropdown
+        function hideCartDropdown() {
+            document.getElementById('cart-dropdown').style.display = 'none';
         }
 
         // Add item to cart
@@ -230,9 +264,19 @@
             updateCartCount();
         }
 
+        // Clear cart
+        function clearCart() {
+            cartCount = 0;
+            updateCartCount();
+        }
+
+        // Redirect to Linktree
         function goToLinktree() {
             window.location.href = "https://linktr.ee/chemicalxprod";
         }
+
+        // Initialize cart count when the page loads
+        updateCartCount();
     </script>
 </body>
 </html>
