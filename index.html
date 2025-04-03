@@ -4,28 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POUS-OJEDA PRODUCTIONS</title>
-    <link rel="icon" type="image/png" href="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png"> <!-- Favicon -->
-    
+    <link rel="icon" type="image/png" href="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap'); /* Futura Alternative */
-        
+        @font-face {
+            font-family: 'Futura Bold';
+            src: url('Futura-Bold.ttf') format('truetype');
+            font-weight: bold;
+        }
+
         body {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Futura Bold', sans-serif;
             background: url('SIX_E1214121-AFF2-4F91-A1DB-AF4381E6EDB8.png') no-repeat center center fixed;
             background-size: cover;
             color: white;
             text-align: center;
             padding: 30px;
-        }
-        
-        .logo-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            width: 150px;
-            filter: drop-shadow(0px 0px 10px rgba(255, 30, 90, 0.8)); /* Neon glow effect */
         }
 
         .container {
@@ -34,6 +28,12 @@
             border-radius: 10px;
             display: inline-block;
             max-width: 80%;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 0px 10px rgba(255, 30, 90, 0.8));
         }
 
         img {
@@ -55,29 +55,26 @@
         }
 
         select {
-            background: rgba(0, 0, 0, 0.6); /* Transparent black */
+            background: rgba(0, 0, 0, 0.5);
             color: white;
-            border: 1px solid rgba(255, 30, 90, 0.8); /* Subtle neon border */
             padding: 10px;
+            font-size: 14px;
+            border: none;
             border-radius: 5px;
-            font-weight: bold;
-        }
-
-        select:focus {
-            outline: none;
-            box-shadow: 0px 0px 10px rgba(255, 30, 90, 0.8); /* Neon glow when selecting */
+            cursor: pointer;
         }
 
         button {
             background: rgba(255, 30, 90, 1);
             color: white;
             font-weight: bold;
+            box-shadow: 0px 0px 10px rgba(255, 30, 90, 0.8);
             padding: 10px;
+            font-size: 14px;
             border: none;
             border-radius: 5px;
-            margin: 8px;
             cursor: pointer;
-            box-shadow: 0px 0px 10px rgba(255, 30, 90, 0.8);
+            margin-top: 10px;
         }
 
         button:hover {
@@ -86,13 +83,8 @@
     </style>
 </head>
 <body>
-
-    <!-- Logo as Header -->
-    <div class="logo-container">
-        <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo">
-    </div>
-
     <div class="container">
+        <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo">
         <img src="your-tshirt-image-url.png" alt="Exclusive T-Shirt">
         <h1>POUS-OJEDA PRODUCTIONS TEE</h1>
         <p class="price">$40</p>
@@ -112,9 +104,8 @@
         function preOrder() {
             let size = document.getElementById("size").value;
             let checkoutURL = "https://forms.gle/QAMWjWmfmDhbjiMP8" + size;
-            window.location.href = checkoutURL; // Redirects to checkout page
+            window.location.href = checkoutURL;
         }
     </script>
-
 </body>
 </html>
