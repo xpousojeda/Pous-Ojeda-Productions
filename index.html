@@ -130,23 +130,6 @@
             background: rgba(200, 20, 70, 1);
         }
 
-        /* New Section: Project Image */
-        .project-section {
-            margin-top: 40px;
-        }
-
-        .project-img {
-            width: 300px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(255, 30, 90, 0.8);
-            transition: transform 0.3s ease-in-out;
-            cursor: pointer;
-        }
-
-        .project-img:hover {
-            transform: scale(1.05);
-        }
-
         /* Cart Icon and Cart Text Styling */
         .cart-container {
             position: fixed;
@@ -178,6 +161,8 @@
             color: white;
             font-size: 14px;
             z-index: 3;
+            max-height: 300px;
+            overflow-y: auto;
         }
 
         /* Footer Styling */
@@ -204,8 +189,10 @@
 
     <!-- Cart Dropdown Menu -->
     <div id="cart-dropdown">
-        Items in Cart: <span id="cart-item-count">0</span><br>
-        <button onclick="clearCart()">Clear Cart</button>
+        <h3>Your Cart</h3>
+        <div id="cart-items">No items added.</div>
+        <br>
+        <button onclick="goToCheckout()">Proceed to Checkout</button>
     </div>
 
     <div class="container">
@@ -224,7 +211,7 @@
             <option value="XXL">XXL</option>
         </select>
         <br>
-        <button onclick="addToCart()">ADD TO CART</button>
+        <button onclick="addToCart('POUS-OJEDA PRODUCTIONS TEE')">ADD TO CART</button>
     </div>
 
     <!-- New Project Section -->
@@ -239,18 +226,19 @@
     </div>
 
     <script>
-        let cartCount = localStorage.getItem('cartCount') ? parseInt(localStorage.getItem('cartCount')) : 0;
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let cartCount = cart.length;
 
         // Update cart count in real-time
         function updateCartCount() {
             document.getElementById('cart-count').innerText = `(${cartCount})`;
-            document.getElementById('cart-item-count').innerText = cartCount;
-            localStorage.setItem('cartCount', cartCount); // Store cart count in localStorage
+            localStorage.setItem('cart', JSON.stringify(cart)); // Store cart in localStorage
         }
 
         // Show cart dropdown
         function showCartDropdown() {
             document.getElementById('cart-dropdown').style.display = 'block';
+            updateCartItems();
         }
 
         // Hide cart dropdown
@@ -259,23 +247,33 @@
         }
 
         // Add item to cart
-        function addToCart() {
+        function addToCart(product) {
+            cart.push({ product: product });
             cartCount++;
             updateCartCount();
         }
 
-        // Clear cart
-        function clearCart() {
-            cartCount = 0;
-            updateCartCount();
+        // Update cart items display in dropdown
+        function updateCartItems() {
+            const cartItems = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                cartItems.innerHTML = 'No items added.';
+            } else {
+                cartItems.innerHTML = '';
+                cart.forEach(item => {
+                    let productElement = document.createElement('div');
+                    productElement.innerText = item.product;
+                    cartItems.appendChild(productElement);
+                });
+            }
         }
 
-        // Redirect to Linktree
-        function goToLinktree() {
-            window.location.href = "https://linktr.ee/chemicalxprod";
+        // Proceed to checkout (Link to Google Form or your checkout page)
+        function goToCheckout() {
+            window.location.href = "https://your-google-form-link.com"; // Replace with your Google Form or checkout link
         }
 
-        // Initialize cart count when the page loads
+        // Initialize cart count and items when the page loads
         updateCartCount();
     </script>
 </body>
