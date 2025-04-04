@@ -13,7 +13,6 @@
             font-weight: bold;
         }
 
-        /* Ensure full height for body and html */
         body, html {
             height: 100%;
             margin: 0;
@@ -32,7 +31,7 @@
         /* Background Image with Dim Overlay */
         body::before {
             content: "";
-            position: fixed; /* Fixed so it covers the full screen */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -130,47 +129,12 @@
             background: rgba(200, 20, 70, 1);
         }
 
-        /* Cart Icon and Cart Text Styling */
-        .cart-container {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 2;
-        }
-
-        .cart-text {
-            font-size: 12px;
-            margin-left: 5px;
-            font-weight: normal;
-        }
-
-        /* Cart Dropdown Styling */
-        #cart-dropdown {
-            display: none;
-            position: absolute;
-            right: 0;
-            top: 25px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            border-radius: 5px;
-            width: 150px;
-            color: white;
-            font-size: 14px;
-            z-index: 3;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
         /* Footer Styling */
         .footer {
-            font-size: 8px; /* Slightly smaller text */
-            color: #FFFFFF; /* Fully visible white text */
+            font-size: 8px;
+            color: #FFFFFF;
             text-align: center;
-            margin-top: 80px; /* Moves it further down */
+            margin-top: 80px;
             padding: 15px 0;
         }
 
@@ -180,19 +144,6 @@
     <!-- Header Logo -->
     <div class="logo-container">
         <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo">
-    </div>
-
-    <!-- Cart Icon and Item Count -->
-    <div class="cart-container" onmouseover="showCartDropdown()" onmouseout="hideCartDropdown()" onclick="toggleCart()">
-        CART <span id="cart-count" class="cart-text">(0)</span>
-    </div>
-
-    <!-- Cart Dropdown Menu -->
-    <div id="cart-dropdown">
-        <h3>Your Cart</h3>
-        <div id="cart-items">No items added.</div>
-        <br>
-        <button onclick="goToCheckout()">Proceed to Checkout</button>
     </div>
 
     <div class="container">
@@ -211,7 +162,7 @@
             <option value="XXL">XXL</option>
         </select>
         <br>
-        <button onclick="addToCart('POUS-OJEDA PRODUCTIONS TEE')">ADD TO CART</button>
+        <button onclick="redirectToCheckout()">PURCHASE</button>
     </div>
 
     <!-- New Project Section -->
@@ -226,55 +177,15 @@
     </div>
 
     <script>
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let cartCount = cart.length;
-
-        // Update cart count in real-time
-        function updateCartCount() {
-            document.getElementById('cart-count').innerText = `(${cartCount})`;
-            localStorage.setItem('cart', JSON.stringify(cart)); // Store cart in localStorage
+        // Redirect to the Google Form for checkout
+        function redirectToCheckout() {
+            window.location.href = "https://your-google-form-link.com"; // Replace with your actual Google Form URL
         }
 
-        // Show cart dropdown
-        function showCartDropdown() {
-            document.getElementById('cart-dropdown').style.display = 'block';
-            updateCartItems();
+        // Redirect to Linktree
+        function goToLinktree() {
+            window.location.href = "https://your-linktree-url.com"; // Replace with your actual Linktree URL
         }
-
-        // Hide cart dropdown
-        function hideCartDropdown() {
-            document.getElementById('cart-dropdown').style.display = 'none';
-        }
-
-        // Add item to cart
-        function addToCart(product) {
-            cart.push({ product: product });
-            cartCount++;
-            updateCartCount();
-        }
-
-        // Update cart items display in dropdown
-        function updateCartItems() {
-            const cartItems = document.getElementById('cart-items');
-            if (cart.length === 0) {
-                cartItems.innerHTML = 'No items added.';
-            } else {
-                cartItems.innerHTML = '';
-                cart.forEach(item => {
-                    let productElement = document.createElement('div');
-                    productElement.innerText = item.product;
-                    cartItems.appendChild(productElement);
-                });
-            }
-        }
-
-        // Proceed to checkout (Link to Google Form or your checkout page)
-        function goToCheckout() {
-            window.location.href = "https://your-google-form-link.com"; // Replace with your Google Form or checkout link
-        }
-
-        // Initialize cart count and items when the page loads
-        updateCartCount();
     </script>
 </body>
 </html>
