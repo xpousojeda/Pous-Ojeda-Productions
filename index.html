@@ -28,7 +28,6 @@
             overflow-x: hidden;
         }
 
-        /* Background Image with Dim Overlay */
         body::before {
             content: "";
             position: fixed;
@@ -46,11 +45,36 @@
             width: 100%;
             text-align: center;
             margin-bottom: 15px;
+            position: relative;
         }
 
         .logo {
             width: 75px;
             filter: drop-shadow(0px 0px 10px rgba(255, 30, 90, 0.8));
+            cursor: pointer;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .dropdown a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 5px 0;
+        }
+
+        .dropdown a:hover {
+            text-decoration: underline;
         }
 
         .container {
@@ -61,9 +85,9 @@
             max-width: 90%;
             position: relative;
             width: 100%;
+            margin-bottom: 20px;
         }
 
-        /* Shirt image hover effect */
         .shirt-container {
             display: inline-block;
             position: relative;
@@ -135,7 +159,6 @@
             background: rgba(200, 20, 70, 1);
         }
 
-        /* Project Section */
         .project-section {
             margin-top: 20px;
         }
@@ -158,7 +181,6 @@
             transform: scale(1.05);
         }
 
-        /* Footer Styling */
         .footer {
             font-size: 10px;
             color: #FFFFFF;
@@ -167,7 +189,6 @@
             padding: 15px 0;
         }
 
-        /* Responsive Styles */
         @media (max-width: 768px) {
             body {
                 padding: 15px;
@@ -194,20 +215,42 @@
                 font-size: 8px;
             }
 
-            /* Adjust album cover size for mobile */
             .project-img {
                 max-width: 150px;
             }
         }
-
     </style>
 </head>
 <body>
-    <!-- Header Logo -->
     <div class="logo-container">
-        <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo">
+        <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo" onclick="toggleDropdown()">
+        <div class="dropdown" id="logoDropdown">
+            <a href="mission.html">Our Mission</a>
+            <a href="faq.html">FAQ</a>
+            <a href="portfolio.html">Portfolio</a>
+        </div>
     </div>
 
+    <!-- Black Tee Section -->
+    <div class="container">
+        <div class="shirt-container">
+            <img src="blacktee_front.png" alt="Black T-Shirt Front" class="front">
+            <img src="blacktee_back.png" alt="Black T-Shirt Back" class="back">
+        </div>
+        <h1>BLACK STATEMENT TEE</h1>
+        <p class="price">$40</p>
+        <select>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+        </select>
+        <br>
+        <button onclick="redirectToCheckout()">PURCHASE</button>
+    </div>
+
+    <!-- Red Tee Section -->
     <div class="container">
         <div class="shirt-container">
             <img src="SIX_74FB4B05-66D1-435E-BFA8-CD9BA68292A8.png" alt="T-Shirt Front" class="front">
@@ -215,7 +258,6 @@
         </div>
         <h1>POUS-OJEDA PRODUCTIONS TEE</h1>
         <p class="price">$40</p>
-        <label for="size"></label>
         <select id="size">
             <option value="S">S</option>
             <option value="M">M</option>
@@ -227,26 +269,27 @@
         <button onclick="redirectToCheckout()">PURCHASE</button>
     </div>
 
-    <!-- New Project Section -->
     <div class="project-section">
         <h2>STREAM MIXED CHEMICALS</h2>
         <img src="SIX_19349515-2B36-4E5E-A5A1-18ACB700128A.png" alt="Latest Project" class="project-img" onclick="goToLinktree()">
     </div>
 
-    <!-- Footer -->
     <div class="footer">
         Property of Pous-Ojeda Productions & Xavier Pous-Ojeda  All rights reserved  &copy; 2025
     </div>
 
     <script>
-        // Redirect to the Google Form for checkout
-        function redirectToCheckout() {
-            window.location.href = "https://docs.google.com/forms/d/1bGZkPURw5-oQB7SIW5zwgbF9CXmWhE4yEheGIpM2Q_s/edit?usp=drivesdk"; // Replace with your actual Google Form URL
+        function toggleDropdown() {
+            const dropdown = document.getElementById("logoDropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
         }
 
-        // Redirect to Linktree
+        function redirectToCheckout() {
+            window.location.href = "https://docs.google.com/forms/d/1bGZkPURw5-oQB7SIW5zwgbF9CXmWhE4yEheGIpM2Q_s/edit?usp=drivesdk";
+        }
+
         function goToLinktree() {
-            window.location.href = "https://linktr.ee/chemicalxprod"; // Replace with your actual Linktree URL
+            window.location.href = "https://linktr.ee/chemicalxprod";
         }
     </script>
 </body>
