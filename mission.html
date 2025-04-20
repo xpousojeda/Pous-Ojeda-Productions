@@ -10,19 +10,69 @@
       font-family: 'Futura Bold', sans-serif;
       color: white;
       margin: 0;
-      padding: 30px;
+      padding: 0;
       background: url('SIX_4EB407FA-AAE5-4CBD-A7FD-455C6E425F37.png') no-repeat center center fixed;
       background-size: cover;
       filter: brightness(0.9);
       text-align: center;
     }
 
+    .logo-container {
+      width: 100%;
+      text-align: center;
+      padding: 30px;
+      position: relative;
+    }
+
+    .logo {
+      width: 75px;
+      filter: drop-shadow(0px 0px 10px rgba(255, 30, 90, 0.8));
+      cursor: pointer;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      padding: 10px;
+      z-index: 10;
+    }
+
+    .dropdown a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 5px 0;
+    }
+
+    .dropdown a:hover {
+      text-decoration: underline;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .carousel img {
+      width: 100%;
+      max-width: 100vw;
+      height: auto;
+      scroll-snap-align: start;
+    }
+
     .container {
       background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
+      padding: 30px;
       border-radius: 10px;
       max-width: 800px;
-      margin: 0 auto;
+      margin: 30px auto;
     }
 
     h1 {
@@ -46,6 +96,22 @@
   </style>
 </head>
 <body>
+  <div class="logo-container">
+    <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo" onclick="toggleDropdown()">
+    <div class="dropdown" id="logoDropdown">
+      <a href="mission.html">Our Mission</a>
+      <a href="faq.html">FAQ</a>
+      <a href="portfolio.html">Portfolio</a>
+    </div>
+  </div>
+
+  <!-- Carousel Banner -->
+  <div class="carousel">
+    <img src="studio_placeholder1.jpg" alt="Studio Image 1">
+    <img src="studio_placeholder2.jpg" alt="Studio Image 2">
+    <img src="studio_placeholder3.jpg" alt="Studio Image 3">
+  </div>
+
   <div class="container">
     <h1>Our Mission</h1>
     <p>
@@ -58,5 +124,12 @@
       <a href="index.html">&#8592; Back to Home</a>
     </p>
   </div>
+
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("logoDropdown");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+  </script>
 </body>
 </html>
