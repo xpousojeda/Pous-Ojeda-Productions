@@ -6,6 +6,12 @@
   <title>FAQ - Pous-Ojeda Productions</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
+    @font-face {
+      font-family: 'Futura Bold';
+      src: url('Futura-Bold.ttf') format('truetype');
+      font-weight: bold;
+    }
+
     body {
       font-family: 'Futura Bold', sans-serif;
       color: white;
@@ -19,7 +25,9 @@
 
     .logo-container {
       width: 100%;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 30px;
       position: relative;
     }
@@ -55,7 +63,7 @@
 
     .container {
       background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
+      padding: 30px;
       border-radius: 10px;
       max-width: 800px;
       margin: 30px auto;
@@ -72,7 +80,7 @@
     }
 
     p {
-      font-size: 12px;
+      font-size: 16px;
       line-height: 1.6;
     }
 
@@ -83,6 +91,33 @@
 
     a:hover {
       text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .logo-container {
+        padding: 20px;
+      }
+
+      .logo {
+        width: 60px;
+      }
+
+      .container {
+        padding: 20px;
+        margin: 20px auto;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
