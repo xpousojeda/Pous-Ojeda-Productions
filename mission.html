@@ -19,7 +19,10 @@
 
     .logo-container {
       width: 100%;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       padding: 30px;
       position: relative;
     }
@@ -93,6 +96,38 @@
 
     a:hover {
       text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .logo-container {
+        padding: 20px;
+      }
+
+      .logo {
+        width: 60px;
+      }
+
+      .banner {
+        padding: 0 15px;
+        gap: 8px;
+      }
+
+      .banner img {
+        max-width: 90%;
+      }
+
+      .container {
+        padding: 20px;
+        margin: 20px auto;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
