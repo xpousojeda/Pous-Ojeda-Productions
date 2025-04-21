@@ -53,18 +53,19 @@
       text-decoration: underline;
     }
 
-    .carousel {
+    .banner {
       display: flex;
-      overflow-x: hidden;
-      scroll-snap-type: x hidden;
-      -webkit-overflow-scrolling: hidden;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 30px;
+      flex-wrap: wrap;
     }
 
-    .carousel img {
+    .banner img {
       width: 100%;
-      max-width: 33vw;
-      height: auto;
-      scroll-snap-align: start;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(255, 30, 90, 0.6);
     }
 
     .container {
@@ -105,8 +106,8 @@
     </div>
   </div>
 
-  <!-- Carousel Banner -->
-  <div class="carousel">
+  <!-- Static Banner Image Row -->
+  <div class="banner">
     <img src="studioimage1.jpg" alt="Studio Image 1">
     <img src="studioimage2.jpg" alt="Studio Image 2">
     <img src="studioimage3.jpg" alt="Studio Image 3">
