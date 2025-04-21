@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Founder - Pous-Ojeda Productions</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    body {
+      font-family: 'Futura Bold', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+      background: url('SIX_4EB407FA-AAE5-4CBD-A7FD-455C6E425F37.png') no-repeat center center fixed;
+      background-size: cover;
+      filter: brightness(0.9);
+      text-align: center;
+    }
+
+    .logo-container {
+      width: 100%;
+      text-align: center;
+      padding: 30px;
+      position: relative;
+    }
+
+    .logo {
+      width: 75px;
+      filter: drop-shadow(0px 0px 10px rgba(255, 30, 90, 0.8));
+      cursor: pointer;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      padding: 10px;
+      z-index: 10;
+    }
+
+    .dropdown a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 5px 0;
+    }
+
+    .dropdown a:hover {
+      text-decoration: underline;
+    }
+
+    .banner {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 30px;
+      flex-wrap: wrap;
+    }
+
+    .banner img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(255, 30, 90, 0.6);
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 30px auto;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #ff1e5a;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo" onclick="toggleDropdown()">
+    <div class="dropdown" id="logoDropdown">
+      <a href="mission.html">Our Mission</a>
+      <a href="faq.html">FAQ</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="our-founder.html">Our Founder</a>
+    </div>
+  </div>
+
+  <!-- Static Banner Image Row -->
+  <div class="banner">
+    <img src="founder_portrait1.jpg" alt="Founder Image 1">
+    <img src="founder_portrait2.jpg" alt="Founder Image 2">
+    <img src="founder_portrait3.jpg" alt="Founder Image 3">
+  </div>
+
+  <div class="container">
+    <h1>Our Founder</h1>
+    <p>
+      Xavier Pous-Ojeda — also known as Chemical X — is the creative force and visionary behind Pous-Ojeda Productions. Born in the Midwest with a deep passion for music, culture, and community, Xavier has dedicated his life to building a platform that goes beyond entertainment.
+    </p>
+    <p>
+      Inspired by artists like Mac Miller, Kanye West, and A$AP Rocky, Xavier blends storytelling and sonics to deliver more than just sound — he delivers a feeling. From beat making and engineering to brand building and grassroots collaboration, he has made authenticity the heart of the work.
+    </p>
+    <p>
+      Pous-Ojeda Productions is a reflection of his values: integrity, expression, and empowerment. Through each track, project, and tee — Xavier’s mission is to uplift and inspire the next generation of independent creatives.
+    </p>
+    <p>
+      <a href="index.html">&#8592; Back to Home</a>
+    </p>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("logoDropdown");
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
