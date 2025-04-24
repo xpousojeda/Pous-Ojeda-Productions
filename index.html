@@ -42,26 +42,31 @@
         }
 
         .nav-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
             position: relative;
             margin-bottom: 15px;
+            text-align: center;
         }
 
         .burger {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
             font-size: 30px;
             color: white;
             cursor: pointer;
             z-index: 15;
             padding: 10px;
-            margin-left: 10px;
+        }
+
+        .logo-container {
+            text-align: center;
+            flex-grow: 1;
         }
 
         .logo {
             width: 75px;
             filter: drop-shadow(0px 0px 10px rgba(255, 30, 90, 0.8));
-            margin-right: auto;
         }
 
         .dropdown {
@@ -236,7 +241,9 @@
         <div class="burger" onclick="toggleDropdown()">
             &#9776;
         </div>
-        <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo">
+        <div class="logo-container">
+            <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo">
+        </div>
         <div class="dropdown" id="logoDropdown">
             <a href="index.html">Home</a>
             <a href="mission.html">Our Mission</a>
