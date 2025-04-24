@@ -23,38 +23,51 @@
       text-align: center;
     }
 
-    .logo-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
+    .nav-container {
       position: relative;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .burger {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      z-index: 15;
+      padding: 10px;
+    }
+
+    .logo-container {
+      text-align: center;
+      flex-grow: 1;
     }
 
     .logo {
       width: 75px;
       filter: drop-shadow(0px 0px 10px rgba(255, 30, 90, 0.8));
-      cursor: pointer;
     }
 
     .dropdown {
       display: none;
+      flex-direction: column;
       position: absolute;
-      top: 110px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgba(0, 0, 0, 0.8);
+      top: 60px;
+      left: 10px;
+      background-color: rgba(0, 0, 0, 0.9);
       border-radius: 10px;
       padding: 10px;
       z-index: 10;
+      text-align: left;
     }
 
     .dropdown a {
       color: white;
       text-decoration: none;
-      display: block;
-      padding: 5px 0;
+      padding: 8px 0;
     }
 
     .dropdown a:hover {
@@ -122,8 +135,11 @@
   </style>
 </head>
 <body>
-  <div class="logo-container">
-    <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo" onclick="toggleDropdown()">
+  <div class="nav-container">
+    <div class="burger" onclick="toggleDropdown()">&#9776;</div>
+    <div class="logo-container">
+      <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo">
+    </div>
     <div class="dropdown" id="logoDropdown">
       <a href="index.html">Home</a>
       <a href="mission.html">Our Mission</a>
@@ -154,7 +170,7 @@
   <script>
     function toggleDropdown() {
       const dropdown = document.getElementById("logoDropdown");
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
     }
   </script>
 </body>
