@@ -1,0 +1,68 @@
+<!-- SERVICES + PRICING PAGE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services + Pricing - Pous-Ojeda Productions</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    /* Inherit same styles */
+    @font-face { font-family: 'Futura Bold'; src: url('Futura-Bold.ttf') format('truetype'); font-weight: bold; }
+    body { font-family: 'Futura Bold', sans-serif; color: white; margin: 0; padding: 0; background: url('SIX_4EB407FA-AAE5-4CBD-A7FD-455C6E425F37.png') no-repeat center center fixed; background-size: cover; filter: brightness(0.9); text-align: center; }
+    .nav-container { position: relative; padding-top: 30px; margin-bottom: 15px; text-align: center; }
+    .burger { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 30px; color: white; cursor: pointer; z-index: 15; padding: 10px; }
+    .logo-container { text-align: center; flex-grow: 1; }
+    .logo { width: 75px; filter: drop-shadow(0px 0px 10px rgba(255, 30, 90, 0.8)); }
+    .dropdown { display: none; flex-direction: column; position: absolute; top: 60px; left: 10px; background-color: rgba(0, 0, 0, 0.9); border-radius: 10px; padding: 10px; z-index: 10; text-align: left; }
+    .dropdown a { color: white; text-decoration: none; padding: 8px 0; }
+    .dropdown a:hover { text-decoration: underline; }
+    .container { background: rgba(0, 0, 0, 0.6); padding: 30px; border-radius: 10px; max-width: 800px; margin: 30px auto; }
+    h1 { font-size: 28px; margin-bottom: 10px; }
+    h2 { font-size: 20px; margin-top: 20px; }
+    p { font-size: 16px; line-height: 1.6; }
+    a { color: #ff1e5a; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="nav-container">
+    <div class="burger" onclick="toggleDropdown()">&#9776;</div>
+    <div class="logo-container">
+      <img src="SIX_838B7F70-DDE1-4A29-805F-3AD079316B92.png" alt="Brand Logo" class="logo">
+    </div>
+    <div class="dropdown" id="logoDropdown">
+      <a href="index.html">Home</a>
+      <a href="mission.html">Our Mission</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="ourfounder.html">About Us</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Services + Pricing</h1>
+
+    <h2>Music Production</h2>
+    <p>Custom beat production tailored to your sound and vision.<br><strong>Starting at $200 per track</strong></p>
+
+    <h2>Recording Sessions</h2>
+    <p>Hourly vocal/instrument tracking with a professional engineer.<br><strong>$50/hour (2-hour minimum)</strong></p>
+
+    <h2>Mixing + Mastering</h2>
+    <p>Industry-standard mixing and mastering to make your record shine.<br><strong>Mix: $150/track | Master: $75/track</strong></p>
+
+    <h2>Creative Consulting</h2>
+    <p>Branding, release strategy, and artistic development sessions.<br><strong>$100/hour</strong></p>
+
+    <p><a href="index.html">&#8592; Back to Home</a></p>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById("logoDropdown");
+      dropdown.style.display = dropdown.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+</body>
+</html>
