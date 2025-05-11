@@ -71,15 +71,15 @@
     }
     .banner {
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       gap: 10px;
-      padding: 0 10px;
+      padding: 0 30px;
+      flex-wrap: nowrap;
       overflow-x: auto;
     }
     .banner img {
-      width: auto;
-      height: auto;
-      max-width: 80vw;
+      width: 100%;
+      max-width: 300px;
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(255, 30, 90, 0.6);
       flex-shrink: 0;
@@ -111,13 +111,15 @@
       display: flex;
       justify-content: center;
       gap: 10px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      overflow-x: auto;
     }
     .team-gallery img {
       width: 100%;
-      max-width: 80vw;
+      max-width: 250px;
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(255, 30, 90, 0.5);
+      flex-shrink: 0;
     }
   </style>
 </head>
